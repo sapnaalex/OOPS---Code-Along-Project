@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class Main{
     public static void main(String[]args){
 
@@ -12,5 +14,17 @@ public class Main{
 
         c1.displayDetails();
         c2.displayDetails();
+
+        List<AttendanceRecord>attendanceLog = new ArrayList<>();
+        
+
+        attendanceLog.add(new AttendanceRecord(s1.studentId(), c1.courseId(), "Present"));
+        attendanceLog.add(new AttendanceRecord(s1.studentId(), c2.courseId(), "Present"));
+        attendanceLog.add(new AttendanceRecord(s2.studentId(), c2.courseId(), "Absent"));
+        attendanceLog.add(new AttendanceRecord(s2.studentId(), c1.courseId(), "Invalid"));
+
+        for(AttendanceRecord record: attendanceLog){
+            record.displayRecord();
+        }
     }
 }
